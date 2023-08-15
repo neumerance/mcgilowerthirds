@@ -7,25 +7,21 @@ export default class Callbacks {
   onNameChange(name) {
     this.updateParams({ name });
 
-    this.controller.replaceText();
+    this.controller.reloadPage();
   }
 
   onTitleChange(title) {
     this.updateParams({ title });
 
-    this.controller.replaceText();
+    this.controller.reloadPage();
   }
 
   updateParams(params) {
     const newParams = {
-      ...this.params(),
+      ...this.store.get(),
       ...params
     }
 
     this.store.set(newParams);
-  }
-
-  params() {
-    this.store.get();
   }
 }

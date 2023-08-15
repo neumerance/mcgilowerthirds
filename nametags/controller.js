@@ -18,7 +18,7 @@ export default class NameTagsController {
   // on the input field where this method will be used
   // see callback.js for possible callbacks
   onChange(event) {
-    const value = event.target.value;
+    const value = event.value;
     const callback = event.getAttribute('data-callback');
 
     this.channel.broadcast(callback, value);
@@ -32,5 +32,9 @@ export default class NameTagsController {
     name.innerHTML = this.name;
 
     return this;
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 }
