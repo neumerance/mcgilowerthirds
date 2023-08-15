@@ -1,17 +1,27 @@
-class NameTagsController {
+import Channel from '../lib/channel.js';
+import Store from '../lib/store.js';
+import Callbacks from './callbacks.js';
+export default class NameTagsController {
   constructor() {
-    this.urlParams = new URLSearchParams(window.location.search);
-    this.title = this.urlParams.get('title') || 'Brother';
-    this.name = this.urlParams.get('name') || 'Daniel Razon' ;
+    this.store = new Store('nameTags');
+    this.callbacks = new Callbacks(this, this.store);
+    this.channel = new Channel('nameTags', this.callbacks);
+
+    this.params = this.store.get();
+    this.title = this.params.title || 'Brother';
+    this.name = this.params.name || 'Daniel Razon' ;
 
     return this;
   }
 
-  params() {
-    return {
-      title: this.title,
-      name: this.name
-    }
+  // This will require data-callback
+  // on the input field where this method will be used
+  // see callback.js for possible callbacks
+  onChange(event) {
+    const value = event.target.value;
+    const callback = event.getAttribute('data-callback');
+
+    this.channel.broadcast(callback, value);
   }
 
   replaceText() {
