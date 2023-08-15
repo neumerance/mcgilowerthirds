@@ -4,3 +4,11 @@ body {
   margin: 0;
   overflow: hidden;
 }
+
+#nametags__title {
+  text-transform: uppercase;
+}
+
+#nametags__name {
+  text-transform: uppercase;
+}
