@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../../assets/bootstrap.min.css">
+    <style>
+      body {
+        background: #161616;
+      }
+    </style>
+
+    <script type="module">
+      import LowerThirdsController from '../controller.js';
+
+      window.lowerThirdController = new LowerThirdsController('default');
+    </script>
+  </head>
+  <body>
+    <div class="p-2">
+      <div class="name-tag_controls" class="m-0">
+        <div class="row mb-2">
+          <div class="col">
+            <label for="lowerthird__title" class="form-label m-0 text-light">Title</label>
+            <input
+              id="lowerthird__title"
+              name="title"
+              type="text"
+              class="form-control form-control-sm text-bg-dark border border-0"
+              aria-label="lowerthird title"
+              onchange="window.lowerThirdController.onChange(this)"
+              data-callback="onTitleChange"
+              placeholder="Title"
+            />
+          </div>
+          <div class="col">
+            <div>
+              <label for="lowerthird__name-fontsize" class="form-label m-0 text-light">Font size</label>
+              <input
+                id="lowerthird__title-fontsize"
+                name="fontSize"
+                type="range"
+                class="form-range"
+                min="0"
+                max="72"
+                value="36"
+                data-callback="onFontSizeChange"
+                onchange="window.lowerThirdController.onChange(this)"
+              />
+            </div>
+            <div>
+              <label for="lowerthird__name-offset" class="form-label m-0 text-light">Offset</label>
+              <input
+                id="lowerthird__title-offset"
+                name="offset"
+                type="range"
+                class="form-range"
+                min="-400"
+                max="400"
+                value="0"
+                data-callback="onOffsetChange"
+                onchange="window.lowerThirdController.onChange(this)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

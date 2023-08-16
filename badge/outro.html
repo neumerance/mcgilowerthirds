@@ -1583,7 +1583,7 @@
       import ScreenTimeController from '../lib/screen_time_controller.js';
 
       const badgeController = new BadgeController();
-      badgeController.replaceText();
+      badgeController.render();
 
       const screenTimeController = new ScreenTimeController(badgeController.params);
       screenTimeController.queueRedirectToIntro();

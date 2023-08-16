@@ -27,7 +27,7 @@ export default class NameTagsController {
     this.channel.broadcast(callback, value);
   }
 
-  replaceText() {
+  render() {
     const title = document.getElementById('nametags__title');
     const name = document.getElementById('nametags__name');
 

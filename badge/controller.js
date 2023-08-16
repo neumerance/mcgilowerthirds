@@ -12,7 +12,7 @@ export default class BadgeController {
     return this;
   }
 
-  replaceText() {
+  render() {
     const localeName = document.getElementById('locale-name')
     const districtName = document.getElementById('district-name');
 
