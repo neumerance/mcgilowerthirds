@@ -1,7 +1,9 @@
+import date from '../lib/date.js';
 export default class Callbacks {
   constructor(controller, store) {
     this.controller = controller;
     this.store = store;
+    this.date = date
   }
 
   onNameChange(name) {
@@ -35,11 +37,11 @@ export default class Callbacks {
   }
 
   onReloadPage() {
-    window.location.replace('intro.html');
+    window.location.replace(`intro.html?t=${this.date}`);
   }
 
   executeOutro() {
-    window.location.replace('outro.html');
+    window.location.replace(`outro.html?t=${this.date}`);
   }
 
   updateParams(params) {

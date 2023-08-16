@@ -1,10 +1,12 @@
 import Store from '../../lib/store.js';
+import date from '../../lib/date.js';
 
 export default class NametagsControlsList {
   constructor(pageController, listID) {
     this.list = document.getElementById(listID);
     this.store = new Store('nameTagEntries');
     this.pageController = pageController
+    this.date = date;
   }
 
   render() {
@@ -67,7 +69,7 @@ export default class NametagsControlsList {
       this.pageController.channel.broadcast('executeOutro', {});
     }
 
-    window.location.replace('./index.html');
+    window.location.replace(`./index.html?t=${this.date}`);
 
     return this;
   }
@@ -79,6 +81,6 @@ export default class NametagsControlsList {
     entries.splice(index, 1);
 
     this.store.set({ data: entries });
-    window.location.replace('./index.html');
+    window.location.replace(`./index.html?t=${this.date}`);
   }
 }

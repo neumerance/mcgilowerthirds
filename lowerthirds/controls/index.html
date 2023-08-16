@@ -5,6 +5,7 @@
     <style>
       body {
         background: #161616;
+        overflow: hidden;
       }
     </style>
 
@@ -12,6 +13,10 @@
       import LowerThirdsController from '../controller.js';
 
       window.lowerThirdController = new LowerThirdsController('default');
+
+      document.getElementById("lowerthird__title").value = window.lowerThirdController.params.title;
+      document.getElementById("lowerthird__title-offset").value = window.lowerThirdController.params.offset;
+      document.getElementById("lowerthird__title-fontsize").value = window.lowerThirdController.params.fontSize;
     </script>
   </head>
   <body>

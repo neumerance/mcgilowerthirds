@@ -1,6 +1,7 @@
 import Channel from '../lib/channel.js';
 import Store from '../lib/store.js';
 import Callbacks from './callbacks.js';
+import date from '../lib/date.js';
 export default class NameTagsController {
   constructor() {
     this.store = new Store('nameTags');
@@ -13,6 +14,7 @@ export default class NameTagsController {
     this.nameOffset = this.params.nameOffset || 0;
     this.nameFontSize = this.params.nameFontSize || 36;
     this.titleOffset = this.params.titleOffset || 0;
+    this.date = date;
 
     return this;
   }
@@ -42,6 +44,6 @@ export default class NameTagsController {
   }
 
   reloadPage() {
-    window.location.replace('intro.html');
+    window.location.replace(`intro.html?t=${this.date}`);
   }
 }
