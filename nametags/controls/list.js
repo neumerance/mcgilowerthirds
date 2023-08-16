@@ -13,12 +13,18 @@ export default class NametagsControlsList {
         <li class="list-group-item text-bg-dark d-flex justify-content-between">
           <span>${nameTag.name}</span>
           <span>
-            <a href="#">
+            <a href="#" class="link-dark">
+              <img
+                width="20"
+                src="../../assets/delete.png"
+                onclick="window.nameTagList.deleteEntry('${nameTag.id}')"
+              />
+            </a>
+            <a href="#" class="link-dark">
               <img
                 width="20"
                 src="../../assets/${nameTag.active ? 'view' : 'hide'}.png"
                 onclick="window.nameTagList.onViewToggle('${nameTag.id}')"
-                data-id="${nameTag.id}"
               />
             </a>
           </span>
@@ -60,5 +66,15 @@ export default class NametagsControlsList {
     window.location.replace('./index.html');
 
     return this;
+  }
+
+  deleteEntry(id) {
+    let entries = this.nameTagEntries();
+    const index = entries.findIndex(entry => id == entry.id);
+
+    entries.splice(index, 1);
+
+    this.store.set({ data: entries });
+    window.location.replace('./index.html');
   }
 }
