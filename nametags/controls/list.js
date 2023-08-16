@@ -11,7 +11,7 @@ export default class NametagsControlsList {
     const renderList = this.nameTagEntries().map((nameTag) => {
       return `
         <li class="list-group-item text-bg-dark d-flex justify-content-between">
-          <span>${nameTag.name}</span>
+          <span>${nameTag.title} ${nameTag.name}</span>
           <span>
             <a href="#" class="link-dark">
               <img
@@ -60,8 +60,12 @@ export default class NametagsControlsList {
     entries[index].active = !entries[index].active;
     this.store.set({ data: entries });
 
-    this.pageController.store.set(entries[index].active ? entries[index] : {});
-    this.pageController.channel.broadcast('onReloadPage', {});
+    if(entries[index].active) {
+      this.pageController.store.set(entries[index])
+      this.pageController.channel.broadcast('onReloadPage', {});
+    } else {
+      this.pageController.channel.broadcast('executeOutro', {});
+    }
 
     window.location.replace('./index.html');
 

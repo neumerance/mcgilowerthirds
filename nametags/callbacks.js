@@ -35,8 +35,11 @@ export default class Callbacks {
   }
 
   onReloadPage() {
-    console.log('reloading');
     window.location.replace('intro.html');
+  }
+
+  executeOutro() {
+    window.location.replace('outro.html');
   }
 
   updateParams(params) {
