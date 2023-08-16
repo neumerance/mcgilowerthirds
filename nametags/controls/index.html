@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../../assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      body {
+        background: #161616;
+      }
+    </style>
+    <script type="module">
+      import NameTagsController from '../controller.js';
+      import NametagsControlsList from './list.js';
+
+      window.nameTagController = new NameTagsController();
+
+      window.nameTagList = new NametagsControlsList(window.nameTagController, 'name-tag_list').render();
+    </script>
+  </head>
+  <body>
+    <div class="p-2">
+      <div id="name-tag_list" class="name-tag_list">
+      </div>
+      <hr />
+      <a href="./new.html" class="btn btn-primary btn-sm">Add New</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../../assets/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      body {
+        background: #161616;
+      }
+    </style>
+
+    <script type="module">
+      import NameTagsController from '../controller.js';
+      import NametagsControlsForm from './form.js';
+
+      window.nameTagController = new NameTagsController();
+
+      window.formController = new NametagsControlsForm("nameTagForm");
+    </script>
+  </head>
+  <body>
+    <div class="p-2">
+      <form id="nameTagForm" action="#">
+        <div class="name-tag_controls" class="m-0">
+          <div class="row mb-2">
+            <div class="col">
+              <label for="name-tag__title" class="form-label m-0 text-light">Title</label>
+              <input
+                id="name-tag__title"
+                name="title"
+                type="text"
+                class="form-control form-control-sm text-bg-dark border border-0"
+                aria-label="name tag title"
+                onchange="window.nameTagController.onChange(this)"
+                data-callback="onTitleChange"
+                placeholder="Title"
+              />
+            </div>
+            <div class="col">
+              <label for="name-tag__title-offset" class="form-label m-0 text-light">Offset</label>
+              <input
+                id="name-tag__title-offset"
+                name="titleOffset"
+                type="range"
+                class="form-range"
+                min="-200"
+                max="200"
+                value="0"
+                data-callback="onTitleOffsetChange"
+                onchange="window.nameTagController.onChange(this)"
+              />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="name-tag_controls" class="m-0">
+          <div class="row mb-2">
+            <div class="col">
+              <label for="name-tag__name" class="form-label m-0 text-light">Name</label>
+              <input
+                id="name-tag__name"
+                name="name"
+                type="text"
+                class="form-control form-control-sm text-bg-dark border border-0"
+                aria-label="name tag name"
+                onchange="window.nameTagController.onChange(this)"
+                data-callback="onNameChange"
+                placeholder="Name"
+              />
+            </div>
+            <div class="col">
+              <div>
+                <label for="name-tag__name-fontsize" class="form-label m-0 text-light">Font size</label>
+                <input
+                  id="name-tag__name-fontsize"
+                  name="nameFontSize"
+                  type="range"
+                  class="form-range"
+                  min="0"
+                  max="72"
+                  value="36"
+                  data-callback="onNameFontSizeChange"
+                  onchange="window.nameTagController.onChange(this)"
+                />
+              </div>
+              <div>
+                <label for="name-tag__name-offset" class="form-label m-0 text-light">Offset</label>
+                <input
+                  id="name-tag__name-offset"
+                  name="nameOffset"
+                  type="range"
+                  class="form-range"
+                  min="-200"
+                  max="200"
+                  value="0"
+                  data-callback="onNameOffsetChange"
+                  onchange="window.nameTagController.onChange(this)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <a href="./index.html" class="btn btn-secondary btn-sm">Cancel</a>
+        <button type="submit" href="#" class="btn btn-primary btn-sm">Save</a>
+      </form>
+    </div>
+  </body>
+</html>

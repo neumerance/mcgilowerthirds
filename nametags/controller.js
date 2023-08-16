@@ -10,6 +10,9 @@ export default class NameTagsController {
     this.params = this.store.get();
     this.title = this.params.title || 'Brother';
     this.name = this.params.name || 'Daniel Razon' ;
+    this.nameOffset = this.params.nameOffset || 0;
+    this.nameFontSize = this.params.nameFontSize || 36;
+    this.titleOffset = this.params.titleOffset || 0;
 
     return this;
   }
@@ -29,12 +32,16 @@ export default class NameTagsController {
     const name = document.getElementById('nametags__name');
 
     title.innerHTML = this.title;
+    title.setAttribute('dx', this.titleOffset);
+
     name.innerHTML = this.name;
+    name.setAttribute('dx', this.nameOffset);
+    name.setAttribute('font-size', this.nameFontSize);
 
     return this;
   }
 
   reloadPage() {
-    window.location.reload();
+    window.location.replace('intro.html');
   }
 }
