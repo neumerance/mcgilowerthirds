@@ -64,7 +64,7 @@ export default class NametagsControlsList {
 
     if(entries[index].active) {
       this.pageController.store.set(entries[index])
-      this.pageController.channel.broadcast('onReloadPage', {});
+      this.pageController.channel.broadcast('executeIntro', {});
     } else {
       this.pageController.channel.broadcast('executeOutro', {});
     }

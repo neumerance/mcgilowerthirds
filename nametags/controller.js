@@ -50,4 +50,20 @@ export default class NameTagsController {
   reloadPage() {
     window.location.replace(`intro.html?t=${this.date}`);
   }
+
+  toggleOffNameTags() {
+    const nameTagStore = new Store('nameTagEntries');
+    let entries = nameTagStore.get().data || [];
+    entries = entries.map((entry) => {
+      entry.active = false
+
+      return entry;
+    });
+
+    nameTagStore.set({ data: entries });
+
+    this.channel.broadcast('renderListTags', {});
+
+    return this;
+  }
 }

@@ -36,7 +36,7 @@ export default class Callbacks {
     this.controller.reloadPage();
   }
 
-  onReloadPage() {
+  executeIntro() {
     window.location.replace(`intro.html?t=${this.date}`);
   }
 
@@ -51,5 +51,9 @@ export default class Callbacks {
     }
 
     this.store.set(newParams);
+  }
+
+  renderListTags() {
+    window.location.reload();
   }
 }
