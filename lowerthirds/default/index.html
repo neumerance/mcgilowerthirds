@@ -1823,17 +1823,13 @@
         ]]>
       </script>
       <script>
-        const format = { year: 'numeric', month: 'long', day: 'numeric' };
-        const date = new Date().toLocaleDateString("en-US", format);
-        document.getElementById("date-container").innerHTML = date;
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const title = urlParams.get('title') || 'PLEASE CHANGE THE TITLE';
-        const offset = urlParams.get('offset') || 0;
-        const titleContainer = document.getElementById("title-container");
-        titleContainer.setAttribute('dx', offset);
-        titleContainer.innerHTML = title;
       </script>
     </svg>
+    <script type="module">
+      import LowerThirdsController from '../controller.js';
+
+      new LowerThirdsController('default').render();
+    </script>
   </body>
 </html>

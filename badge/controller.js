@@ -1,26 +1,18 @@
-class BadgeController {
+import Store from '../lib/store.js';
+export default class BadgeController {
   constructor() {
-    this.urlParams = new URLSearchParams(window.location.search);
-    this.defaultIdleTime = 120;
-    this.defaultScreenTime = 60;
-    this.localeName = this.urlParams.get('localeName') || 'LOKAL NG COLO';
-    this.districtName = this.urlParams.get('districtName') || 'BATZAM';
-    this.localeNameOffset = this.urlParams.get('localeNameOffset') || 0;
-    this.districtNameOffset = this.urlParams.get('districtNameOffset') || 0;
+    this.store = new Store('badge');
+    this.params = this.store.get();
+
+    this.localeName = this.params.localeName || 'LOKAL NG COLO';
+    this.districtName = this.params.districtName || 'BATZAM';
+    this.localeNameOffset = this.params.localeNameOffset || 0;
+    this.districtNameOffset = this.params.districtNameOffset || 0;
 
     return this;
   }
 
-  params() {
-    return {
-      localeName: this.localeName,
-      districtName: this.districtName,
-      localeNameOffset: this.localeNameOffset,
-      districtNameOffset: this.districtNameOffset
-    }
-  }
-
-  replaceText() {
+  render() {
     const localeName = document.getElementById('locale-name')
     const districtName = document.getElementById('district-name');
 

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="../lib/screen_time_controller.js"></script>
-    <script src="./controller.js"></script>
     <link rel="stylesheet" href="./style.css" type="text/css" />
   </head>
   <body>
-    <script>
+    <script type="module" >
+      import NameTagsController from './controller.js';
+      import ScreenTimeController from '../lib/screen_time_controller.js';
+
       const nameTagController = new NameTagsController();
 
-      const screenTimeController = new ScreenTimeController(nameTagController.params());
+      const screenTimeController = new ScreenTimeController(nameTagController.params);
       screenTimeController.executeRedirectToIntro();
     </script>
   </body>

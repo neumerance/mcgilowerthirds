@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="../lib/screen_time_controller.js"></script>
-    <script src="./controller.js"></script>
     <link rel="stylesheet" href="./style.css" type="text/css" />
   </head>
   <body>
@@ -1661,11 +1659,14 @@
         ]]>
       </script>
     </svg>
-    <script>
-      const nameTagController = new NameTagsController();
-      nameTagController.replaceText();
+    <script type="module" >
+      import NameTagsController from './controller.js';
+      import ScreenTimeController from '../lib/screen_time_controller.js';
 
-      const screenTimeController = new ScreenTimeController(nameTagController.params());
+      const nameTagController = new NameTagsController();
+      nameTagController.render();
+
+      const screenTimeController = new ScreenTimeController(nameTagController.params);
       screenTimeController.queueRedirectToOutro();
     </script>
   </body>
