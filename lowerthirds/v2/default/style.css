@@ -1,0 +1,100 @@
+@import url('../../../assets/fonts/gotham/stylesheet.css');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 1280px;
+  height: 720px;
+  background: transparent;
+  display: flex;
+  font-family: 'Gotham';
+}
+.lowerthirds {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-end;
+}
+.lowerthirds__title {
+  font-weight: 700;
+  font-size: 2.4vw;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  height: 70px;
+  max-height: 70px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lowerthirds__subtitle {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  font-size: 1.1vw;
+  text-transform: uppercase;
+  color: rgb(28, 99, 221);
+  width: 518px;
+  height: 39px;
+  max-height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lowerthirds__date {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  font-size: 1.1vw;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  width: 362px;
+  height: 39px;
+  max-height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lowerthirds__blue-upper-bar {
+  background: linear-gradient(180deg,#0085FF 0%, rgb(26, 102, 222) 100%);
+  height: 109px;
+  width: 880px;
+  margin-bottom: -39px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.lowerthirds__yellow-bar {
+  background: rgba(255, 231, 33, 1);
+  height: 39px;
+  width: 100%;
+  position: relative;
+}
+.lowerthirds__orange-bar {
+  background: rgba(231, 131, 0, 1);
+  height: 39px;
+  width: 342px;
+  position: absolute;
+  right: 0px;
+}
+.lowerthirds__light-orange-bar {
+  background: rgba(241, 178, 16, 1);
+  height: 39px;
+  width: 362px;
+  position: absolute;
+  right: 0px;
+}
+.lowerthirds__blue-bottom-bar {
+  background: linear-gradient(92deg, #70CBFF 0%, #7098FF 100%);
+  height: 61px;
+  width: 100%;
+}
+.justify-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.slanted {
+  -webkit-clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+}
